@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author - Graham McMillan
 # Date - 13/01/2020
-# Usage ./script.sh <serverlist> <password> <command>
+# Usage ./command-over-ssh.sh <serverlist> <password> <command>
 
 pass="$2"
 user="ubuntu"
