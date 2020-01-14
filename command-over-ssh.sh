@@ -1,10 +1,11 @@
 #!/bin/bash
 # Author - Graham McMillan
 # Date - 13/01/2020
-# Usage ./command-over-ssh.sh <serverlist> <password> <command>
+# Usage ./command-over-ssh.sh <serverlist> <user> <password> <command>
 
-pass="$2"
-user="ubuntu"
+pass="$3"
+user="$2"
+command="$4"
 
 # Read serverlist file and run expect script
 for server in $(cat $1);
@@ -12,7 +13,7 @@ do
   expect <<- END
   log_user 1
   set timeout 30
-  spawn ssh -t $user@$server "$3"
+  spawn ssh -t $user@$server "$command"
   sleep 2
   expect "*?assword:"
   send "$pass\r"
